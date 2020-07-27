@@ -1,0 +1,16 @@
+version: '3.0'
+
+services:
+    keycloak:
+     build:
+       context: ./docker
+     image: keycloak
+     environment:
+         KEYCLOAK_USER: admin
+         KEYCLOAK_PASSWORD: admin
+         KEYCLOAK_IMPORT: /realm.json
+     volumes:
+            - /tmp:/tmp
+     ports:
+         - "8080:8080"
+
